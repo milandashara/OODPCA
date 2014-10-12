@@ -19,13 +19,13 @@ import java.awt.event.ActionListener;
  * @version 1.0 2008-10-01
  */
 public class CoinInputListener implements ActionListener{
-	CoinReceiver coinReceiver;
+	Receiver coinReceiver;
 	
 	/**
 	 * This constructor creates an instance of the Coin Input Listener
 	 * @param coinReceiver the Coin Receiver
 	 */
-	public CoinInputListener(CoinReceiver coinReceiver){
+	public CoinInputListener(Receiver coinReceiver){
 		this.coinReceiver=coinReceiver;
 	}
 	
@@ -34,6 +34,6 @@ public class CoinInputListener implements ActionListener{
 	 */
 	public void actionPerformed(ActionEvent ev){
 		CoinButton coinButton=(CoinButton)ev.getSource();
-		coinReceiver.receiveCoin(coinButton.getWeight());
+		coinReceiver.receiveItem(coinButton.getWeight());
 	}
 }//End of class CoinInputListener

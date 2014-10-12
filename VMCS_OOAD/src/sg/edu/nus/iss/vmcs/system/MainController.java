@@ -9,6 +9,11 @@ package sg.edu.nus.iss.vmcs.system;
 
 import java.io.IOException;
 
+
+
+
+import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
+import sg.edu.nus.iss.vmcs.customer.Receiver;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;
 import sg.edu.nus.iss.vmcs.machinery.MachineryController;
 import sg.edu.nus.iss.vmcs.maintenance.MaintenanceController;
@@ -73,7 +78,9 @@ public class MainController {
 			machineryCtrl = new MachineryController(this);
 			machineryCtrl.initialize();
 			maintenanceCtrl = new MaintenanceController(this);
-			txCtrl=new TransactionController(this);
+			Receiver coinReceiver = new CoinReceiver();
+			txCtrl=new TransactionController(this,coinReceiver);
+
 		} catch (IOException e) {
 			throw new VMCSException(
 				"MainController.initialize",

@@ -20,9 +20,16 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
  * @author Team SE16T5E
  * @version 1.0 2008-10-01
  */
-public class CoinReceiver {
+public class CoinReceiver implements Receiver {
 	private TransactionController txCtrl;
 	
+	public TransactionController getTxCtrl() {
+		return txCtrl;
+	}
+	public void setTxCtrl(TransactionController txCtrl) {
+		this.txCtrl = txCtrl;
+	}
+
 	/**List of the Coins entered during the transaction.*/
 	private ArrayList arlCoins;
 	/**Total amount of money entered so far during current transaction.*/
@@ -32,6 +39,10 @@ public class CoinReceiver {
 	 * This constructor creates an instance of the object.
 	 * @param txCtrl the transaction controller.
 	 */
+	public CoinReceiver() {
+		arlCoins=new ArrayList();
+		setTotalInserted(0);
+	}
 	public CoinReceiver(TransactionController txCtrl){
 		this.txCtrl=txCtrl;
 		arlCoins=new ArrayList();
@@ -72,6 +83,8 @@ public class CoinReceiver {
 	 * </ol>
 	 * @param weight the weight of the coin received&#46;
 	 */
+	
+	
 	public void receiveCoin(double weight){
 		CashStore cashStore=(CashStore)txCtrl.getMainController().getStoreController().getStore(Store.CASH);
 		Coin coin=cashStore.findCoin(weight);
@@ -91,6 +104,12 @@ public class CoinReceiver {
 			txCtrl.getCustomerPanel().setChange("");
 			txCtrl.processMoneyReceived(getTotalInserted());
 		}
+	}
+
+	@Override
+	public void receiveItem(double ItemValue) {
+		// TODO Auto-generated method stub
+		receiveCoin(ItemValue);
 	}
 
 	/**

@@ -34,7 +34,9 @@ public class TransactionController {
 	private CustomerPanel custPanel;
 	private DispenseController dispenseCtrl;
 	private ChangeGiver changeGiver;
-	private CoinReceiver coinReceiver;
+	private Receiver receiver;
+
+	
 
 	/**Set to TRUE when change is successfully issued during the transaction.*/
 	private boolean changeGiven=false;
@@ -52,7 +54,14 @@ public class TransactionController {
 	public TransactionController(MainController mainCtrl) {
 		this.mainCtrl = mainCtrl;
 		dispenseCtrl=new DispenseController(this);
-		coinReceiver=new CoinReceiver(this);
+		receiver=new CoinReceiver(this);
+		changeGiver=new ChangeGiver(this);
+	}
+	public TransactionController(MainController mainCtrl,Receiver recv) {
+		recv.setTxCtrl(this);
+		this.mainCtrl = mainCtrl;
+		dispenseCtrl=new DispenseController(this);
+		receiver= recv ;
 		changeGiver=new ChangeGiver(this);
 	}
 
@@ -74,7 +83,7 @@ public class TransactionController {
 		dispenseCtrl.updateDrinkPanel();
 		dispenseCtrl.allowSelection(true);
 		changeGiver.displayChangeStatus();
-		coinReceiver.setActive(false);
+		receiver.setActive(false);
 	}
 	
 	/**
@@ -103,7 +112,7 @@ public class TransactionController {
 		dispenseCtrl.ResetCan();
 		changeGiver.displayChangeStatus();
 		dispenseCtrl.allowSelection(false);
-		coinReceiver.startReceiver();
+		receiver.startReceiver();
 		custPanel.setTerminateButtonActive(true);
 	}
 	
@@ -124,7 +133,7 @@ public class TransactionController {
 		if(total>=price)
 			completeTransaction();
 		else{
-			coinReceiver.continueReceive();
+			receiver.continueReceive();
 		}
 	}
 	
@@ -144,7 +153,7 @@ public class TransactionController {
 	public void completeTransaction(){
 		System.out.println("CompleteTransaction: Begin");
 		dispenseCtrl.dispenseDrink(selection);
-		int totalMoneyInserted=coinReceiver.getTotalInserted();
+		int totalMoneyInserted=receiver.getTotalInserted();
 		int change=totalMoneyInserted-price;
 		if(change>0){
 			changeGiver.giveChange(change);
@@ -152,7 +161,7 @@ public class TransactionController {
 		else{
 			getCustomerPanel().setChange(0);
 		}
-		coinReceiver.storeCash();
+		receiver.storeCash();
 		dispenseCtrl.allowSelection(true);
 		
 		refreshMachineryDisplay();
@@ -168,7 +177,7 @@ public class TransactionController {
 	public void terminateFault(){
 		System.out.println("TerminateFault: Begin");
 		dispenseCtrl.allowSelection(false);
-		coinReceiver.refundCash();
+		receiver.refundCash();
 		refreshMachineryDisplay();
 		System.out.println("TerminateFault: End");
 	}
@@ -188,8 +197,8 @@ public class TransactionController {
 	public void terminateTransaction(){
 		System.out.println("TerminateTransaction: Begin");
 		dispenseCtrl.allowSelection(false);
-		coinReceiver.stopReceive();
-		coinReceiver.refundCash();
+		receiver.stopReceive();
+		receiver.refundCash();
 		if(custPanel!=null){
 			custPanel.setTerminateButtonActive(false);
 		}
@@ -202,8 +211,8 @@ public class TransactionController {
 	 */
 	public void cancelTransaction(){
 		System.out.println("CancelTransaction: Begin");
-		coinReceiver.stopReceive();
-		coinReceiver.refundCash();
+		receiver.stopReceive();
+		receiver.refundCash();
 		dispenseCtrl.allowSelection(true);
 		refreshMachineryDisplay();
 		System.out.println("CancelTransaction: End");
@@ -325,8 +334,8 @@ public class TransactionController {
 	 * This method returns the CoinReceiver.
 	 * @return the CoinReceiver.
 	 */
-	public CoinReceiver getCoinReceiver(){
-		return coinReceiver;
+	public Receiver getReceiver(){
+		return receiver;
 	}
 	
 	/**
