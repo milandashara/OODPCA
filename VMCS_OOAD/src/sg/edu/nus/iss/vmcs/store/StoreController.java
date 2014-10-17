@@ -23,8 +23,8 @@ import java.io.IOException;
  * @see StoreItem
  * @see StoreObject
  * 
- * @version 3.0 5/07/2003
- * @author Olivo Miotto, Pang Ping Li
+ * @author Saurav
+ * @version 1.0 17/10/2014
  */
 public class StoreController {
 	private CashStore cStore;

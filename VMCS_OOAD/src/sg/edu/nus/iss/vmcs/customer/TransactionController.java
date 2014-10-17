@@ -26,8 +26,8 @@ import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
 /**
  * This control object coordinates the customer transactions for selection of a drink brand,
  * coin input, storage of coins and termination requests for ongoing transactions.
- * @author Team SE16T5E
- * @version 1.0 2008-10-01
+ * @author Saurav,Li Ke
+ * @version 2.0 17/10/2014
  */
 public class TransactionController {
 	private MainController mainCtrl;
@@ -54,8 +54,8 @@ public class TransactionController {
 	private static TransactionController singleTransactionCtrlr = new TransactionController();
 	
 	/**
-	 * This constructor creates Single instance of the TransactionController.
-	 * @param.
+	 * This constructor creates the instance of the TransactionController.
+	 * 
 	 */
 	private TransactionController() {
 		dispenseCtrl=new DispenseController(this);
