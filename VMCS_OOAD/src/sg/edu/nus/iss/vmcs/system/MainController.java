@@ -78,8 +78,13 @@ public class MainController {
 			machineryCtrl = new MachineryController(this);
 			machineryCtrl.initialize();
 			maintenanceCtrl = new MaintenanceController(this);
+//			txCtrl=new TransactionController(this,coinReceiver);
+			txCtrl= TransactionController.getInstance();
+			txCtrl.setMainController(this);
+			
+			// Method to set Receiver in Transaction 
 			Receiver coinReceiver = new CoinReceiver();
-			txCtrl=new TransactionController(this,coinReceiver);
+			txCtrl.setReceiver(coinReceiver);
 
 		} catch (IOException e) {
 			throw new VMCSException(

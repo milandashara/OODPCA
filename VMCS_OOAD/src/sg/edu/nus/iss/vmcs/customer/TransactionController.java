@@ -48,22 +48,27 @@ public class TransactionController {
 	private int selection=-1;
 	
 	/**
-	 * This constructor creates an instance of the TransactionController.
-	 * @param mainCtrl the MainController.
+	 * Creating Single instance of the TransactionController.
 	 */
-	public TransactionController(MainController mainCtrl) {
-		this.mainCtrl = mainCtrl;
+	
+	private static TransactionController singleTransactionCtrlr = new TransactionController();
+	
+	/**
+	 * This constructor creates Single instance of the TransactionController.
+	 * @param.
+	 */
+	private TransactionController() {
 		dispenseCtrl=new DispenseController(this);
-		receiver=new CoinReceiver(this);
 		changeGiver=new ChangeGiver(this);
 	}
-	public TransactionController(MainController mainCtrl,Receiver recv) {
-		recv.setTxCtrl(this);
-		this.mainCtrl = mainCtrl;
-		dispenseCtrl=new DispenseController(this);
-		receiver= recv ;
-		changeGiver=new ChangeGiver(this);
-	}
+	
+	/**
+	 * This method returns the Single Instance of TransactionController.
+	 * @return the TransactionController.
+	 */	
+	public static TransactionController getInstance(){
+	      return singleTransactionCtrlr;
+	   }
 
 	/**
 	 * This method returns the MainController.
@@ -72,7 +77,23 @@ public class TransactionController {
 	public MainController getMainController() {
 		return mainCtrl;
 	}
-
+	
+	/**
+	 * This method set  the MainController for the TransctionController.
+	 * @param MainController.
+	 */
+	public void setMainController(MainController mainCtrl) {
+		this.mainCtrl = mainCtrl;
+	}
+	
+	/**
+	 * This method set  the Receiver for the TransctionController.
+	 * @param Receiver object.
+	 */
+	public void setReceiver(Receiver recv){
+		this.receiver = recv;
+		recv.setTxCtrl(this);
+	}
 	/**
 	 * This method displays and initialize the CustomerPanel.
 	 */
