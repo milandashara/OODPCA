@@ -9,6 +9,8 @@ package sg.edu.nus.iss.vmcs.store;
 
 import java.io.IOException;
 
+import sg.edu.nus.iss.vmcs.customer.TransactionController;
+
 /**
  * This control object manages changes in CashStore attributes and 
  * the DrinksStore attributes.
@@ -24,7 +26,7 @@ import java.io.IOException;
  * @see StoreObject
  * 
  * @author Saurav
- * @version 1.0 17/10/2014
+ * @version 1.0 18/10/2014
  */
 public class StoreController {
 	private CashStore cStore;
@@ -32,16 +34,43 @@ public class StoreController {
 
 	private PropertyLoader cashLoader;
 	private PropertyLoader drinksLoader;
+	
+	/**
+	 * Creating Single instance of the StoreController.
+	 */
+	
+	private static StoreController singleStroreCtrlr = new StoreController();
 
 	/**
-	 * This constructor creates an instance of StoreController object.
-	 * @param cashLoader the cash loader.
-	 * @param drinksLoader the drinks loader.
+	 * This constructor creates an empty instance of StoreController object.
 	 */
-	public StoreController(
-		PropertyLoader cashLoader,
-		PropertyLoader drinksLoader) {
+	private StoreController(){
+		
+	}
+	
+
+	/**
+	 * This method returns the Single Instance of TransactionController.
+	 * @return the TransactionController.
+	 */	
+	public static StoreController getInstance(){
+	      return singleStroreCtrlr;
+	   }
+	
+	//Setter and Getters for CashLoader,DrinksLoader 
+	public PropertyLoader getCashLoader() {
+		return cashLoader;
+	}
+
+	public void setCashLoader(PropertyLoader cashLoader) {
 		this.cashLoader = cashLoader;
+	}
+
+	public PropertyLoader getDrinksLoader() {
+		return drinksLoader;
+	}
+
+	public void setDrinksLoader(PropertyLoader drinksLoader) {
 		this.drinksLoader = drinksLoader;
 	}
 
@@ -54,6 +83,7 @@ public class StoreController {
 		dStore = new DrinksStore();
 		initializeStores();
 	}
+
 
 	/**
 	 * This method initiates the initialization of the {@link DrinkStore} and {@link CashStore}

@@ -24,7 +24,7 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
  * This object is the main controller of the vending machine&#46; It coordinates the main operations of the VMCS&#46;
  *
  * @author Saurav,Li Ke
- * @version 2.0 17/10/2014
+ * @version 3.0 18/10/2014
  */
 public class MainController {
 	private SimulationController  simulatorCtrl;
@@ -72,13 +72,19 @@ public class MainController {
 				new DrinkPropertyLoader(Environment.getDrinkPropFile());
 			cashLoader.initialize();
 			drinksLoader.initialize();
-			storeCtrl = new StoreController(cashLoader, drinksLoader);
+			
+			// Getting Single instance of StoreController
+			storeCtrl = StoreController.getInstance();
+			storeCtrl.setCashLoader(cashLoader);
+			storeCtrl.setDrinksLoader(drinksLoader);
 			storeCtrl.initialize();
+			
 			simulatorCtrl = new SimulationController(this);
 			machineryCtrl = new MachineryController(this);
 			machineryCtrl.initialize();
 			maintenanceCtrl = new MaintenanceController(this);
-//			txCtrl=new TransactionController(this,coinReceiver);
+			
+			// Getting Single instance of TransactionController
 			txCtrl= TransactionController.getInstance();
 			txCtrl.setMainController(this);
 			
