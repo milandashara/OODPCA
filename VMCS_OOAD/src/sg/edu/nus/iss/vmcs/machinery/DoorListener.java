@@ -32,10 +32,15 @@ public class DoorListener implements ItemListener {
 	 * This method performs actions in response to the door state being changed.
 	 */
 	public void itemStateChanged(ItemEvent e) {
+			
 		Checkbox cb;
-
 		cb = (Checkbox) e.getSource();
-
-		mctrl.setDoorState(cb.getState());
+		
+		
+		DoorStateChangedCommand doorStateChangedCommand=new DoorStateChangedCommand(mctrl);
+		doorStateChangedCommand.setDoorState(cb.getState());
+		Invoker invoker=new Invoker();
+		invoker.dooStateChangedCommand(doorStateChangedCommand);
+		//mctrl.setDoorState(cb.getState());
 	}
 }//End of class DoorListener
