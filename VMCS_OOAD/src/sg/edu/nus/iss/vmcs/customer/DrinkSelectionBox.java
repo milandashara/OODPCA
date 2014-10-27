@@ -51,7 +51,7 @@ public class DrinkSelectionBox extends Panel{
 			StoreObject storeObject=drinksStoreItem.getContent();
 			DrinksBrand drinksBrand=(DrinksBrand)storeObject;
 			String drinksName=drinksBrand.getName();
-			int drinksPrice=drinksBrand.getPrice();
+			int drinksPrice=drinksBrand.getSellingPrice();
 			int drinksQuantity=drinksStoreItem.getQuantity();
 			drinkSelectionItems[i]=new DrinkSelectionItem(i,drinksName,drinksPrice,drinksQuantity,true,false);
 			drinkSelectionItems[i].addListener(new DrinkSelectionListener(txCtrl,i));

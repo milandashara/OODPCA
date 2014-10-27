@@ -47,7 +47,7 @@ public class DispenseController {
 			int quantity=storeItem.getQuantity();
 			DrinksBrand drinksBrand=(DrinksBrand)storeItem.getContent();
 			String name=drinksBrand.getName();
-			int price=drinksBrand.getPrice();
+			int price=drinksBrand.getSellingPrice();
 			custPanel.getDrinkSelectionBox().update(i, quantity, price, name);
 		}
 	}
@@ -114,7 +114,7 @@ public class DispenseController {
 			StoreObject storeObject=drinkStoreItem.getContent();
 			DrinksBrand drinksBrand=(DrinksBrand)storeObject;
 			String drinksName=drinksBrand.getName();
-			int price=drinksBrand.getPrice();
+			int price=drinksBrand.getSellingPrice();
 			int quantity=drinkStoreItem.getQuantity();
 			txCtrl.getCustomerPanel().setCan(drinksName);
 			updateDrinkSelection(selectedBrand);

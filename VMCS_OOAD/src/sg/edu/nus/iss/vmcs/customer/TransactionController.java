@@ -128,7 +128,7 @@ public class TransactionController {
 		setSelection(drinkIdentifier);
 		StoreItem storeItem=mainCtrl.getStoreController().getStoreItem(Store.DRINK,drinkIdentifier);
 		DrinksBrand drinksBrand=(DrinksBrand)storeItem.getContent();
-		setPrice(drinksBrand.getPrice());
+		setPrice(drinksBrand.getSellingPrice());
 		changeGiver.resetChange();
 		dispenseCtrl.ResetCan();
 		changeGiver.displayChangeStatus();

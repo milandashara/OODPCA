@@ -8,9 +8,10 @@
 package sg.edu.nus.iss.vmcs.store;
 
 /**
- * This entity object stores the name of the drink brand and its price&#46; There can be
- * as many drink brands as desire, for a particular configuration&#46;
- *
+ * This entity object stores the name of the drink brand and its price&#46;
+ * There can be as many drink brands as desire, for a particular
+ * configuration&#46;
+ * 
  * @see CashStore
  * @see CashStoreItem
  * @see Coin
@@ -26,6 +27,7 @@ package sg.edu.nus.iss.vmcs.store;
  */
 public class DrinksBrand extends StoreObject {
 	private int price;
+	private static PriceStrategy strategy;
 
 	/**
 	 * This constructor creates an instance of DrinksBrand object.
@@ -33,10 +35,24 @@ public class DrinksBrand extends StoreObject {
 	public DrinksBrand() {
 	}
 
+	
+	/**
+	 * This method creates an instance of PricingStrategyFactory object 
+	 * and used to create the strategy based on the properties value.
+	 */
+	public PriceStrategy setStartegy(String strategy) {
+		PricingStrategyFactory PricingStrategy = new PricingStrategyFactory();
+		chooseStrategy(PricingStrategy.create(strategy));
+		return getStrategy();
+	}
+
 	/**
 	 * This Constructor creates an instance of the DrinksBrand object&#46;
-	 * @param name the name of the drinks brand&#46;
-	 * @param price the price of the drinks brand&#46;
+	 * 
+	 * @param name
+	 *            the name of the drinks brand&#46;
+	 * @param price
+	 *            the price of the drinks brand&#46;
 	 */
 	public DrinksBrand(String name, int price) {
 		this.price = price;
@@ -45,17 +61,55 @@ public class DrinksBrand extends StoreObject {
 
 	/**
 	 * This method sets the price of the DrinksBrand.
-	 * @param p the price of the drinks brand.
+	 * 
+	 * @param p
+	 *            the price of the drinks brand.
 	 */
 	public void setPrice(int p) {
 		price = p;
 	}
 
 	/**
-	 * This method returns the price of thr DrinksBrand.
+	 * This method returns the price of the DrinksBrand.
+	 * 
 	 * @return the price of the drinks brand.
 	 */
 	public int getPrice() {
 		return (price);
 	}
-}//End of class DrinksBrand
+	
+	/**
+	 * This method returns the price of the DrinksBrand based on the strategy. 
+	 * 
+	 * @return the price of the drinks brand.
+	 */
+
+	public int getSellingPrice() {
+
+		if (getStrategy() == null) {
+			return this.price;
+		} else {
+			return getStrategy().getPrice(this.price, this.name);
+		}
+
+	}
+	
+	/**
+	 * This method returns the strategy. 
+	 * 
+	 * @return the type of strategy.
+	 */
+
+	public static PriceStrategy getStrategy() {
+		return strategy;
+	}
+	
+	/**
+	 * This method set the value of strategy. 
+	 * 	
+	 */
+
+	public static void chooseStrategy(PriceStrategy strategy) {
+		DrinksBrand.strategy = strategy;
+	}
+}// End of class DrinksBrand

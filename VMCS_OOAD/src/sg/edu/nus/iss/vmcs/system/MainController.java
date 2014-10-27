@@ -12,11 +12,13 @@ import java.io.IOException;
 
 
 
+
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.Receiver;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;
 import sg.edu.nus.iss.vmcs.machinery.MachineryController;
 import sg.edu.nus.iss.vmcs.maintenance.MaintenanceController;
+import sg.edu.nus.iss.vmcs.store.DrinksBrand;
 import sg.edu.nus.iss.vmcs.store.StoreController;
 import sg.edu.nus.iss.vmcs.util.VMCSException;
 
@@ -78,6 +80,9 @@ public class MainController {
 			storeCtrl.setCashLoader(cashLoader);
 			storeCtrl.setDrinksLoader(drinksLoader);
 			storeCtrl.initialize();
+			// It is used to set the startegy value from the property file
+			DrinksBrand brand = new DrinksBrand();			
+			brand.setStartegy(Environment.getStartegy());
 			
 			simulatorCtrl = new SimulationController(this);
 			machineryCtrl = new MachineryController(this);
