@@ -331,10 +331,11 @@ public class StoreController {
 	 * @param idx the index of the Coin&#46;
 	 * @param numOfCoins the number of Coin to deduct&#46; 
 	 */
-	public void giveChange(int idx, int numOfCoins)  {
-		CashStoreItem item;
-		item = (CashStoreItem) getStoreItem(Store.CASH, idx);
+	public void giveChange(CashStoreItem storeItem, int numOfCoins)  {
+		//CashStoreItem item;
+		//item = (CashStoreItem) getStoreItem(Store.CASH, idx);
+		
 		for (int i = 0; i < numOfCoins; i++)
-			item.decrement();
+			storeItem.decrement();
 	}
 }//End of class StoreController

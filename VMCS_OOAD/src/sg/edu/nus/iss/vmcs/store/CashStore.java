@@ -7,6 +7,10 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.Iterator;
+
+import sg.edu.nus.iss.vmcs.customer.CashStoreItemIterator;
+
 /**
  * This object represents the store of cash in the vending machine.
  * 
@@ -81,5 +85,18 @@ public class CashStore extends Store {
 				return current;
 		}
 		return null;
+	}
+
+	
+	/**
+	 * 
+	 * @author Milan
+	 * Iterator Pattern
+	 *
+	 */
+	@Override
+	public Iterator<StoreItem> createIterator() {
+		
+		return new CashStoreItemIterator(this);
 	}
 }//End of class CashStore

@@ -7,6 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.util.Iterator;
+
 import sg.edu.nus.iss.vmcs.store.CashStoreItem;
 import sg.edu.nus.iss.vmcs.store.Coin;
 import sg.edu.nus.iss.vmcs.store.Store;
@@ -54,7 +56,7 @@ public class ChangeGiver {
 			int changeBal=changeRequired;
 			MainController mainCtrl=txCtrl.getMainController();
 			StoreController storeCtrl=mainCtrl.getStoreController();
-			int cashStoreSize=storeCtrl.getStoreSize(Store.CASH); 
+			/*int cashStoreSize=storeCtrl.getStoreSize(Store.CASH); 
 			for(int i=cashStoreSize-1;i>=0;i--){
 				StoreItem cashStoreItem=storeCtrl.getStore(Store.CASH).getStoreItem(i);
 				int quantity=cashStoreItem.getQuantity();
@@ -67,7 +69,32 @@ public class ChangeGiver {
 					quantity--;
 				}
 				txCtrl.getMainController().getMachineryController().giveChange(i,quantityRequired);
+			}*/
+			
+			/**
+			 * 
+			 * @author Milan
+			 * Iterator Pattern
+			 *
+			 */
+			
+			Store store=storeCtrl.getStore(Store.CASH);
+			Iterator<StoreItem> storeItemIterator= store.createIterator();
+			while(storeItemIterator.hasNext())
+			{
+				StoreItem cashStoreItem=storeItemIterator.next();
+				int quantity=cashStoreItem.getQuantity();
+				Coin coin=(Coin)cashStoreItem.getContent();
+				int value=coin.getValue();
+				int quantityRequired=0;
+				while(changeBal>0&&changeBal>=value&&quantity>0){
+					changeBal-=value;
+					quantityRequired++;
+					quantity--;
+				}
+				txCtrl.getMainController().getMachineryController().giveChange((CashStoreItem)cashStoreItem,quantityRequired);
 			}
+			
 			txCtrl.getCustomerPanel().setChange(changeRequired-changeBal);
 			if(changeBal>0)
 				txCtrl.getCustomerPanel().displayChangeStatus(true);

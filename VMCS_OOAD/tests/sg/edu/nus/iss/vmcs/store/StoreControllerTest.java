@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.Iterator;
+
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -389,18 +391,23 @@ public class StoreControllerTest extends TestCase{
 		StoreController storeController=mainCtrl.getStoreController();
 		storeController.initialize();
 		CashStore cashStore=(CashStore)storeController.getStore(Store.CASH);
-		int storeSize=cashStore.getStoreSize();
-		for(int i=0;i<storeSize;i++){
-			CashStoreItem cashStoreItem=(CashStoreItem)cashStore.getStoreItem(i);
+		
+		Iterator<StoreItem> storeItemIterator= cashStore.createIterator();
+		//int storeSize=cashStore.getStoreSize();
+		while(storeItemIterator.hasNext()){
+			CashStoreItem cashStoreItem=(CashStoreItem)storeItemIterator.next();
 			int qty1=cashStoreItem.getQuantity();
 			if(qty1==0)
 				continue;
 			//Act give change
-			storeController.giveChange(i,1);
-			cashStoreItem=(CashStoreItem)cashStore.getStoreItem(i);
+			storeController.giveChange(cashStoreItem,1);
+			cashStoreItem=(CashStoreItem)(CashStoreItem)storeItemIterator.next();
 			int qty2=cashStoreItem.getQuantity();
 			//Assert
 			assertEquals(qty1,qty2+1);
 		}
+		
+		
+		
 	}
 }//End of class StoreControllerTest

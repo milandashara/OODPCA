@@ -7,6 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.Iterator;
+
 /**
  * This entity object implements a generic Store&#46; It has methods to load (add) {@link StoreItem}
  * into the Store and release {@link StoreItem} from the Store.
@@ -34,6 +36,16 @@ public abstract class Store {
     /**This attribute hold the items of the store*/
 	protected StoreItem items[];
 
+	
+
+	/**
+	 * 
+	 * @author Milan
+	 * Iterator Pattern
+	 *
+	 */
+	public abstract Iterator<StoreItem> createIterator();
+	
 	/**
 	 * This constructor creates an instance of Store object.
 	 */
@@ -131,4 +143,8 @@ public abstract class Store {
 	public int getStoreSize() {
 		return size;
 	}
+	
+	
+	
+	
 }//End of class Store

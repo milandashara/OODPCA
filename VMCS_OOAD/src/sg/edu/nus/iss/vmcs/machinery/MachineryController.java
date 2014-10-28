@@ -190,8 +190,8 @@ public class MachineryController {
 	 * @param numOfCoins the number of coins to change.
 	 * @throws VMCSException if fail to update cash store display.
 	 */
-	public void giveChange(int idx, int numOfCoins) throws VMCSException {
-		storeCtrl.giveChange(idx, numOfCoins);
+	public void giveChange(CashStoreItem storeItem, int numOfCoins) throws VMCSException {
+		storeCtrl.giveChange(storeItem, numOfCoins);
 		if (ml != null)
 			ml.getCashStoreDisplay().update();
 	}

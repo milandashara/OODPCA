@@ -7,6 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
+import java.util.Iterator;
+
 /**
  * This object is storage, in the vending machine's memory, for the total number of
  * cans of each DrinksBrand held by the vending machine&#46;
@@ -30,5 +32,18 @@ public class DrinksStore extends Store {
 	 * This constructor creates an instance of DrinksStore object.
 	 */
 	public DrinksStore() {
+	}
+
+	
+	/**
+	 * 
+	 * @author Milan
+	 * Iterator Pattern
+	 *
+	 */
+	@Override
+	public Iterator<StoreItem> createIterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }//End of class DrinksStore
