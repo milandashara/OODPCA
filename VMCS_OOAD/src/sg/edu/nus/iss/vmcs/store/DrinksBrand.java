@@ -89,7 +89,7 @@ public class DrinksBrand extends StoreObject {
 		if (getStrategy() == null) {
 			return this.price;
 		} else {
-			return getStrategy().getPrice(this.price, this.name);
+			return getStrategy().getPrice(this.price);
 		}
 
 	}

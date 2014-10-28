@@ -13,6 +13,6 @@ public interface PriceStrategy {
 	public String SCHOOL = "school";
 	public String COLLEGE = "college";
 	
-	public int getPrice(int price, String name);
+	public int getPrice(int price);
 
 }

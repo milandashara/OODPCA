@@ -6,7 +6,7 @@ package sg.edu.nus.iss.vmcs.store;
  */
 public class StreetStrategy implements PriceStrategy {
 	
-	public int getPrice(int price, String name)
+	public int getPrice(int price)
 	{
 		return (int) (price * 2.5);
 

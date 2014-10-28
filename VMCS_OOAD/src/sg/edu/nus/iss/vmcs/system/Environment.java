@@ -25,7 +25,7 @@ public class Environment {
 	public final static String CASH_PROP_FILE = "cashFile";
 	/**This constant attribute denotes the password string*/
 	public final static String PASSWORD = "password";
-	public final static String STARTEGY = "Startegy";
+	public final static String STARTEGY = "strategy";
 
 	private static Properties prop;
 
@@ -80,6 +80,9 @@ public class Environment {
 	 * @return the startegy
 	 */
 	public static String getStartegy() {
-		return prop.getProperty(STARTEGY);
+		String strategy =prop.getProperty(STARTEGY);
+		if(strategy == null)
+			strategy="default";
+		return strategy;
 	}
 }//End of class Environment

@@ -7,7 +7,7 @@ package sg.edu.nus.iss.vmcs.store;
  */
 public class CollegeStrategy implements PriceStrategy {
 	
-	public int getPrice(int price, String name)
+	public int getPrice(int price)
 	{
 		return (int) (price * 1.5);
 
