@@ -7,10 +7,10 @@ package sg.edu.nus.iss.vmcs.machinery;
  */
 public class Invoker {
 
-	void dooStateChangedCommand(DoorStateChangedCommand doorStateChangedCommand)
+	void doorStateChangedCommand(DoorStateChangedCommand doorStateChangedCommand)
 	{
 		
 		if(doorStateChangedCommand !=null)
-		doorStateChangedCommand.execute(doorStateChangedCommand.isDoorState());
+		doorStateChangedCommand.execute();
 	}
 }

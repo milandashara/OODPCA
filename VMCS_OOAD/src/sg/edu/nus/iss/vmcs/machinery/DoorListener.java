@@ -40,7 +40,7 @@ public class DoorListener implements ItemListener {
 		DoorStateChangedCommand doorStateChangedCommand=new DoorStateChangedCommand(mctrl);
 		doorStateChangedCommand.setDoorState(cb.getState());
 		Invoker invoker=new Invoker();
-		invoker.dooStateChangedCommand(doorStateChangedCommand);
+		invoker.doorStateChangedCommand(doorStateChangedCommand);
 		//mctrl.setDoorState(cb.getState());
 	}
 }//End of class DoorListener

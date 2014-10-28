@@ -7,5 +7,5 @@ package sg.edu.nus.iss.vmcs.machinery;
  */
 public interface Command {
 
-	void execute(boolean doorState);
+	void execute();
 }

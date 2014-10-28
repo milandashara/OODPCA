@@ -23,7 +23,7 @@ public class DoorStateChangedCommand implements Command {
 	}
 	
 	@Override
-	public void execute(boolean doorState) {
+	public void execute() {
 		mctrl.setDoorState(doorState);
 
 	}
