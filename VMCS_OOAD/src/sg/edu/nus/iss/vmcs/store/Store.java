@@ -40,7 +40,7 @@ public abstract class Store {
 
 	/**
 	 * 
-	 * @author Milan
+	 * @author abhinav
 	 * Iterator Pattern
 	 *
 	 */

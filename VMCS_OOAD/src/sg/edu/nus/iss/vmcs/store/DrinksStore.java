@@ -37,7 +37,7 @@ public class DrinksStore extends Store {
 	
 	/**
 	 * 
-	 * @author Milan
+	 * @author abhinav
 	 * Iterator Pattern
 	 *
 	 */

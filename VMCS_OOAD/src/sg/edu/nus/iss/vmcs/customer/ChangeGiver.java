@@ -73,7 +73,7 @@ public class ChangeGiver {
 			
 			/**
 			 * 
-			 * @author Milan
+			 * @author abhinav
 			 * Iterator Pattern
 			 *
 			 */
