@@ -22,7 +22,7 @@ import sg.edu.nus.iss.vmcs.system.MainController;
 
 /**
  * This interface object is part of the Customer Panel&#46; It is used by the Customer to select a drink.
- * @author Team SE16T5E
+ * @author Team SE16T5E, sakthi
  * @version 1.0 2008-10-01
  */
 public class DrinkSelectionBox extends Panel{

@@ -16,7 +16,7 @@ import sg.edu.nus.iss.vmcs.util.*;
  * This entity object holds the environment settings used to configure the system.
  *
  * @version 3.0 5/07/2003
- * @author Olivo Miotto, Pang Ping Li
+ * @author Olivo Miotto, Pang Ping Li,sakthi
  */
 public class Environment {
 	/**This constant attribute identify the drink property filename*/

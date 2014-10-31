@@ -25,7 +25,7 @@ import sg.edu.nus.iss.vmcs.util.VMCSException;
 /**
  * This object is the main controller of the vending machine&#46; It coordinates the main operations of the VMCS&#46;
  *
- * @author Saurav,Li Ke
+ * @author Saurav,Li Ke, sakthi
  * @version 3.0 18/10/2014
  */
 public class MainController {

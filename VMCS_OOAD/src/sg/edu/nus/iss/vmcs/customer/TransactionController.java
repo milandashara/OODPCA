@@ -26,7 +26,7 @@ import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
 /**
  * This control object coordinates the customer transactions for selection of a drink brand,
  * coin input, storage of coins and termination requests for ongoing transactions.
- * @author Saurav,Li Ke
+ * @author Saurav,Li Ke,sakthi
  * @version 2.0 17/10/2014
  */
 public class TransactionController {

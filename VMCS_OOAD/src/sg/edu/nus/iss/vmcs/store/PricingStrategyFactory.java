@@ -1,10 +1,11 @@
 package sg.edu.nus.iss.vmcs.store;
 
 /**
- * This object represents the method for choosing the startegy 
- * to calculate the price of Drinks brand
+ * This object represents the method for choosing the startegy to calculate the
+ * price of Drinks brand
+ * 
  * @author sakthi
- *
+ * 
  */
 
 public class PricingStrategyFactory {
@@ -29,6 +30,11 @@ public class PricingStrategyFactory {
 		case PriceStrategy.COLLEGE:
 			strategy = new CollegeStrategy();
 			break;
+
+		default:
+			strategy = new DefaultStrategy();
+			break;
+
 		}
 		return strategy;
 
