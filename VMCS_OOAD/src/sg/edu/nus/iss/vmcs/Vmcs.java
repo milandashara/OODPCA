@@ -7,8 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs;
 
-import sg.edu.nus.iss.vmcs.system.*;
-import sg.edu.nus.iss.vmcs.util.*;
+import sg.edu.nus.iss.vmcs.system.MainController;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This object acts as the main program of the application.

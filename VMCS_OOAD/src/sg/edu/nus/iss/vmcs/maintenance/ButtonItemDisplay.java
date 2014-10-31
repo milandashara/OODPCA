@@ -7,10 +7,13 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.ActionListener;
 
-import sg.edu.nus.iss.vmcs.store.*;
+import sg.edu.nus.iss.vmcs.store.StoreItem;
+import sg.edu.nus.iss.vmcs.store.StoreObject;
 import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**

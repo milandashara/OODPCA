@@ -7,7 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import sg.edu.nus.iss.vmcs.system.*;
+import sg.edu.nus.iss.vmcs.system.Environment;
 
 /**
  * This entity object stores the correct password.

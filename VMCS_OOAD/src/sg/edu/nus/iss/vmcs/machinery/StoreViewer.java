@@ -7,10 +7,16 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
-import java.awt.*;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
 
-import sg.edu.nus.iss.vmcs.store.*;
-import sg.edu.nus.iss.vmcs.util.*;
+import sg.edu.nus.iss.vmcs.store.Store;
+import sg.edu.nus.iss.vmcs.store.StoreController;
+import sg.edu.nus.iss.vmcs.store.StoreItem;
+import sg.edu.nus.iss.vmcs.util.LabelledDisplay;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This boundary object displays the contents of a store (DrinksStore or CashStore) and

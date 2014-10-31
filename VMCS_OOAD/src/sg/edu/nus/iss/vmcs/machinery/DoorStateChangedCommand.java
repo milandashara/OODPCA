@@ -24,6 +24,7 @@ public class DoorStateChangedCommand implements Command {
 	
 	@Override
 	public void execute() {
+		System.out.println("DoorStateChangedCommand.execute()");
 		mctrl.setDoorState(doorState);
 
 	}

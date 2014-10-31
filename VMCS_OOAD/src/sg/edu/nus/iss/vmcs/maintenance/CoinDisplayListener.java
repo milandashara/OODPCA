@@ -7,8 +7,9 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This control object monitors the events in the CoinDisplay and performs actions

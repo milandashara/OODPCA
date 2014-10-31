@@ -7,8 +7,12 @@
  */
 package sg.edu.nus.iss.vmcs.util;
 
-import java.awt.event.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This object is used to display messages.

@@ -9,7 +9,8 @@
 package sg.edu.nus.iss.vmcs.system;
 
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This control object monitors the Begin Simulation Button and performs actions in response to the

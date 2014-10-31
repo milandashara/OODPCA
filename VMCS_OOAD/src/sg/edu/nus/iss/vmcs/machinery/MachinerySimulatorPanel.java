@@ -7,11 +7,19 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Checkbox;
+import java.awt.Dialog;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-import sg.edu.nus.iss.vmcs.store.*;
-import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
+import sg.edu.nus.iss.vmcs.store.Store;
+import sg.edu.nus.iss.vmcs.store.StoreController;
 
 /**
  * This panel simulates the physical actions of the maintainer&#46;

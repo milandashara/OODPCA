@@ -7,10 +7,10 @@
  */
 package sg.edu.nus.iss.vmcs.system;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileInputStream;
+import java.util.Properties;
 
-import sg.edu.nus.iss.vmcs.util.*;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This entity object holds the environment settings used to configure the system.

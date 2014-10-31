@@ -7,8 +7,17 @@
  */
 package sg.edu.nus.iss.vmcs.system;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * This panel is displayed when the system is started up&#46; It enables the user (the Controller) to:

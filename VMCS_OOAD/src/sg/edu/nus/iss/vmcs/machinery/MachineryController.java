@@ -7,15 +7,19 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
-import sg.edu.nus.iss.vmcs.system.*;
-import sg.edu.nus.iss.vmcs.util.*;
-import sg.edu.nus.iss.vmcs.store.*;
+import sg.edu.nus.iss.vmcs.store.CashStoreItem;
+import sg.edu.nus.iss.vmcs.store.Coin;
+import sg.edu.nus.iss.vmcs.store.StoreController;
+import sg.edu.nus.iss.vmcs.system.MainController;
+import sg.edu.nus.iss.vmcs.system.SimulatorControlPanel;
+import sg.edu.nus.iss.vmcs.util.MessageDialog;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This object controls the Change State use case.
  *
  * @version 3.0 5/07/2003
- * @author Olivo Miotto, Pang Ping Li
+ * @author Milan
  */
 public class MachineryController {
 	/**This attribute reference to the MainController*/
@@ -109,6 +113,7 @@ public class MachineryController {
 	 * @param state TRUE to set the state to open, otherwise, set the state to closed.
 	 */
 	public void setDoorState(boolean state) {
+		System.out.println("MachineryController.setDoorState(state)");
 		door.setState(state);
 		displayDoorState();
 		

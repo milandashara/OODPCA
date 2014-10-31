@@ -9,6 +9,7 @@ public class Invoker {
 
 	void doorStateChangedCommand(DoorStateChangedCommand doorStateChangedCommand)
 	{
+		System.out.println("Invoker.doorStateChangedCommand(doorStateChangedCommand)");
 		
 		if(doorStateChangedCommand !=null)
 		doorStateChangedCommand.execute();

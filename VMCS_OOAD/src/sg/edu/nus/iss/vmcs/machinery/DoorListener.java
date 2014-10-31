@@ -7,8 +7,9 @@
  */
 package sg.edu.nus.iss.vmcs.machinery;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Checkbox;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 /**
  * This control object monitors the door status request (close door) when the Controller
@@ -36,7 +37,7 @@ public class DoorListener implements ItemListener {
 		Checkbox cb;
 		cb = (Checkbox) e.getSource();
 		
-		
+		System.out.println("DoorListener.itemStateChanged(ItemEvent e)");
 		DoorStateChangedCommand doorStateChangedCommand=new DoorStateChangedCommand(mctrl);
 		doorStateChangedCommand.setDoorState(cb.getState());
 		Invoker invoker=new Invoker();

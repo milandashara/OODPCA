@@ -7,10 +7,15 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Panel;
 
-import sg.edu.nus.iss.vmcs.store.*;
-import sg.edu.nus.iss.vmcs.util.*;
+import sg.edu.nus.iss.vmcs.store.Store;
+import sg.edu.nus.iss.vmcs.store.StoreController;
+import sg.edu.nus.iss.vmcs.store.StoreItem;
+import sg.edu.nus.iss.vmcs.util.LabelledDisplay;
+import sg.edu.nus.iss.vmcs.util.VMCSException;
 
 /**
  * This interface object is part of the MaintenancePanel&#46; It is used by the Maintainer to 

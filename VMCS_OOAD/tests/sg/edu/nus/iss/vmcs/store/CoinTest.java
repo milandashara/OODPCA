@@ -1,10 +1,10 @@
 package sg.edu.nus.iss.vmcs.store;
 
+import junit.framework.TestCase;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import junit.framework.TestCase;
 
 public class CoinTest extends TestCase{
 	

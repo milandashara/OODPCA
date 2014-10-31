@@ -7,7 +7,8 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * This control object monitors the Exit Button and performs actions in response to the

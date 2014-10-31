@@ -7,7 +7,7 @@
  */
 package sg.edu.nus.iss.vmcs.store;
 
-import java.io.*;
+import java.io.IOException;
 
 /**
  * This interface provides the generic functionality required to initialize the stores.

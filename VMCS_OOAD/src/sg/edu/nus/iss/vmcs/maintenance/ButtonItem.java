@@ -7,8 +7,13 @@
  */
 package sg.edu.nus.iss.vmcs.maintenance;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.ActionListener;
 
 /**
  * This boundary object displays one item in a ButtonItemDisplay.&#46;

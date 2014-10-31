@@ -8,7 +8,9 @@
 package sg.edu.nus.iss.vmcs.system;
 
 
-import sg.edu.nus.iss.vmcs.store.*;
+import sg.edu.nus.iss.vmcs.store.DrinksBrand;
+import sg.edu.nus.iss.vmcs.store.DrinksStoreItem;
+import sg.edu.nus.iss.vmcs.store.StoreItem;
 
 /**
  * This control object manages the initialization of the DrinksStore

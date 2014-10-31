@@ -9,10 +9,6 @@ package sg.edu.nus.iss.vmcs.system;
 
 import java.io.IOException;
 
-
-
-
-
 import sg.edu.nus.iss.vmcs.customer.CoinReceiver;
 import sg.edu.nus.iss.vmcs.customer.Receiver;
 import sg.edu.nus.iss.vmcs.customer.TransactionController;

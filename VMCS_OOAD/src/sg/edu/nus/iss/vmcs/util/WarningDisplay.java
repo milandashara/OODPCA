@@ -7,7 +7,10 @@
  */
 package sg.edu.nus.iss.vmcs.util;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Label;
+import java.awt.Panel;
 
 /**
  * This interface object class implements a generic display label&#46; It provides for setting
